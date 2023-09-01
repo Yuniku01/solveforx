@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans:wght@400;500;600&family=Roboto:wght@300&display=swap");
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+input[type="text"] {
+  width: 40px;
+  height: 20px;
+}
