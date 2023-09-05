@@ -13,25 +13,28 @@
     />
   </head>
   <body>
-    <h2>Enter system of linear equations:</h2>
-    <ol>
-      <li>
-        <input type="text" id="A00" /> x + <input type="text" id="A01" /> y +
-        <input type="text" id="A02" /> z = <input type="text" id="B0" />
-      </li>
-      <br />
-      <li>
-        <input type="text" id="A10" /> x + <input type="text" id="A11" /> y +
-        <input type="text" id="A12" /> z = <input type="text" id="B1" />
-      </li>
-      <br />
-      <li>
-        <input type="text" id="A20" /> x + <input type="text" id="A21" /> y +
-        <input type="text" id="A22" /> z = <input type="text" id="B2" />
-      </li>
-    </ol>
+    <form action="">
+      <h2>Enter system of linear equations:</h2>
+      <ol>
+        <li>
+          <input type="text" id="A00" /> x + <input type="text" id="A01" /> y +
+          <input type="text" id="A02" /> z = <input type="text" id="B0" />
+        </li>
+        <br />
+        <li>
+          <input type="text" id="A10" /> x + <input type="text" id="A11" /> y +
+          <input type="text" id="A12" /> z = <input type="text" id="B1" />
+        </li>
+        <br />
+        <li>
+          <input type="text" id="A20" /> x + <input type="text" id="A21" /> y +
+          <input type="text" id="A22" /> z = <input type="text" id="B2" />
+        </li>
+      </ol>
 
-    <button id="solve" onclick="solve()">Solve</button>
+      <button id="button" type="button" onclick="solve()">Solve</button>
+      <button type="reset">Clear</button>
+    </form>
 
     <p id="for_x"></p>
     <p id="for_y"></p>
