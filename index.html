@@ -3,20 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>System of Linear equations solver</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <h2>Enter system of linear equations:</h2>
     <ol>
       <li>
         <input type="text" id="A00" /> x + <input type="text" id="A01" /> y +
-        <input type="text" id="A01" /> z = <input type="text" id="B0" />
+        <input type="text" id="A02" /> z = <input type="text" id="B0" />
       </li>
       <br />
       <li>
         <input type="text" id="A10" /> x + <input type="text" id="A11" /> y +
-        <input type="text" id="A21" /> z = <input type="text" id="B1" />
+        <input type="text" id="A12" /> z = <input type="text" id="B1" />
       </li>
       <br />
       <li>
@@ -30,6 +36,7 @@
     <p id="for_x"></p>
     <p id="for_y"></p>
     <p id="for_z"></p>
+    <p id="error"></p>
 
     <script>
       function solve() {
@@ -50,6 +57,7 @@
             parseFloat(document.getElementById("A22").value),
           ],
         ];
+
         var d =
           A[0][0] * A[1][1] * A[2][2] +
           A[0][1] * A[1][2] * A[2][0] +
@@ -75,6 +83,7 @@
             parseFloat(document.getElementById("A22").value),
           ],
         ];
+
         var dx =
           B[0][0] * B[1][1] * B[2][2] +
           B[0][1] * B[1][2] * B[2][0] +
@@ -132,13 +141,19 @@
           E[0][2] * E[1][1] * E[2][0] -
           E[0][1] * E[1][0] * E[2][2] -
           E[0][0] * E[1][2] * E[2][1];
-
-        x = dx / d;
-        y = dy / d;
-        z = dz / d;
-        document.getElementById("for_x").textContent = "x = " + x;
-        document.getElementById("for_y").textContent = "y = " + y;
-        document.getElementById("for_z").textContent = "z = " + z;
+        if (d == 0 && dx == 0 && dy == 0 && dz == 0) {
+          document.getElementById("error").textContent =
+            "It has infinitely many solutions";
+        } else if (d == 0) {
+          document.getElementById("error").textContent = "It has no solution";
+        } else {
+          x = dx / d;
+          y = dy / d;
+          z = dz / d;
+          document.getElementById("for_x").textContent = "x = " + x;
+          document.getElementById("for_y").textContent = "y = " + y;
+          document.getElementById("for_z").textContent = "z = " + z;
+        }
       }
     </script>
   </body>
